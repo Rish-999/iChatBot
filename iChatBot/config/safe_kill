@@ -1,0 +1,34 @@
+# Kill all Python servers on port 8222
+netstat -ano | findstr :8222
+taskkill /PID <PID> /F
+
+# Restart Uvicorn
+uvicorn main:app --reload --port 8222
+
+1️⃣ Kill the stuck process
+
+From your netstat output, the PID is 22048 (the Uvicorn server). Kill it:
+
+taskkill /PID 22048 /F
+
+
+Check again:
+
+netstat -ano | findstr :8222
+
+It should be gone.
+
+2️⃣ Optional: Kill all python processes
+
+Sometimes multiple zombie Python servers are running:
+
+taskkill /IM python.exe /F
+
+
+(Be careful if you have other Python scripts running.)
+
+3️⃣ Restart Uvicorn on a clean port
+
+After killing the old processes:
+
+uvicorn main:app --reload --port 8222
