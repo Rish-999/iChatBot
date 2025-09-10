@@ -1,5 +1,5 @@
 # backend/services/chat_service.py
-
+from iChatBot.services import chat_service
 # ---------------- Chat Flow ----------------
 chat_flow = {
     # ---------------- Start ----------------
@@ -286,5 +286,6 @@ def get_response(query: str):
         "message": f"❓ I don’t understand '{query}'. Please try again.",
         "options": chat_flow["start"]["options"]
     })
+
 
 
