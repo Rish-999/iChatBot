@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.staticfiles import StaticFiles
 
-from router import chat_router
+from router.chat_router import router as chat_router   # ✅ fixed
 
 app = FastAPI(title="iChatBot")
 
@@ -26,3 +26,4 @@ app.add_middleware(
 
 #include routers
 app.include_router(chat_router.router)
+
