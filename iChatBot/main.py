@@ -18,7 +18,7 @@ origins = [
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # or ["*"] for dev
+    allow_origins=["*"],  # or ["*"] for dev
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -26,4 +26,5 @@ app.add_middleware(
 
 #include routers
 app.include_router(chat_router.router)
+
 
