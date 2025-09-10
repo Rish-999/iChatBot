@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from model.request_models import QueryRequest
+from iChatBot.model.request_models import QueryRequest
 from services import chat_service
 from iChatBot.model.request_models import QueryRequest
 
@@ -15,3 +15,4 @@ def root():return  chat_service.root()
 @router.post("/respond")
 
 def respond_chat_flow(req:QueryRequest): return  chat_service.get_response(req.query)
+
